@@ -3,59 +3,62 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Galym Yedigeyev — One-Page Resume</title>
+<title>Galym Yedigeyev — Web UI/UX Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-  /* ---------- Light, compact, one-page layout ---------- */
+  /* ---------- Light, compact, one-page resume (UI/UX–focused) ---------- */
   :root{
     --bg:#ffffff; --text:#0b1220; --muted:#475569; --line:#e2e8f0;
-    --accent:#0f62fe; --chip:#f3f4f6; --chip-text:#0b1220; --radius:12px;
-    --base:11pt; /* compact for one page */
+    --accent:#2563eb; --chip:#f3f4f6; --chip-text:#0b1220; --radius:12px;
+    --base:11pt;
   }
   *{box-sizing:border-box}
   html,body{height:100%}
   body{
     margin:0; background:var(--bg); color:var(--text);
-    font: var(--base)/1.4 Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+    font: var(--base)/1.42 Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
     -webkit-print-color-adjust:exact; print-color-adjust:exact;
   }
   .wrap{max-width:1000px;margin:20px auto;padding:0 18px}
   /* Header */
   .header{display:grid;grid-template-columns:84px 1fr;gap:14px;align-items:center;margin-bottom:12px}
-  .avatar{width:84px;height:84px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fafafa}
+  .avatar{width:84px;height:84px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f8fafc)}
   .avatar img{width:100%;height:100%;object-fit:cover}
   h1{font-size:22pt;letter-spacing:.2px;margin:0 0 2px 0}
+  .tagline{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 8px 0}
+  .role{background:#eef2ff;color:#1e40af;border:1px solid #dbeafe;border-radius:999px;padding:5px 10px;font-size:10.5pt;font-weight:700}
   .sub{font-weight:600;color:var(--muted);margin:0 0 6px 0}
   .contact{font-size:10.5pt;color:var(--muted)}
-  .contact a{color:inherit;text-decoration:none;border-bottom:1px dotted #cbd5e1}
+  .contact a{color:var(--accent);text-decoration:none;border-bottom:1px dotted #93c5fd}
+  .contact a:hover{opacity:.85}
   /* Grid */
-  .grid{display:grid;grid-template-columns:320px 1fr;gap:16px}
+  .grid{display:grid;grid-template-columns:340px 1fr;gap:16px}
   @media (max-width:960px){.grid{grid-template-columns:1fr}}
-  /* Cards (very light) */
+  /* Cards */
   .card{border:1px solid var(--line);border-radius:var(--radius);background:#fff}
   .hd{padding:10px 12px;border-bottom:1px solid var(--line);text-transform:uppercase;color:var(--muted);font-size:10pt;letter-spacing:.06em}
   .bd{padding:10px 12px}
   /* Chips */
   .chips{display:flex;flex-wrap:wrap;gap:6px}
   .chip{background:var(--chip);color:var(--chip-text);border:1px solid #dfe3ea;border-radius:999px;padding:4px 8px;font-size:10pt}
+  .chip.accent{background:#eff6ff;border-color:#c7d2fe;color:#1e3a8a}
   /* Items */
   .items{display:flex;flex-direction:column;gap:8px}
   .item{padding:8px;border:1px solid var(--line);border-radius:10px;background:#fff}
   .item h4{margin:0 0 2px 0;font-size:11.2pt}
   .meta{color:var(--muted);font-size:10pt}
-  /* Tighten spacing to fit one page */
   .bd p{margin:0}
+  .bul{margin:6px 0 0 0;padding-left:16px}
+  .bul li{margin:2px 0}
   .group-title{margin:8px 0 6px 0;color:var(--muted);text-transform:uppercase;font-size:9.6pt;letter-spacing:.08em}
   .avoid{break-inside:avoid;page-break-inside:avoid}
-  /* Print: enforce one A4 page if possible */
+  /* Print: A4, one page */
   @media print{
     @page{size:A4;margin:10mm}
     .wrap{margin:0;padding:0}
     h1{font-size:20pt}
-    .sub{font-size:10.8pt}
-    .contact{font-size:10pt}
     .grid{gap:12px}
   }
 </style>
@@ -66,11 +69,15 @@
       <div class="avatar"><img src="MZrZUQ_LV-photo.png" alt="Galym Yedigeyev"></div>
       <div>
         <h1>Galym Yedigeyev</h1>
-        <p class="sub">Grade 12 • Nazarbayev Intellectual School of Science and Mathematics in Medeu district of Almaty • AI & Full-Stack Developer• First-Class (1 rank up to CM) Chess Player</p>
+        <div class="tagline">
+          <span class="role">Web UI/UX Developer</span>
+          <span class="role">Front-End Engineer</span>
+        </div>
+        <p class="sub">Grade 12 • Nazarbayev Intellectual School of Science and Mathematics (Almaty) • builds fast, accessible, mobile-first interfaces</p>
         <p class="contact">
           Almaty, Kazakhstan • +7 707 567 31 95 •
           <a href="mailto:galymtashtek@gmail.com">galymtashtek@gmail.com</a> •
-          <a href="https://github.com/Galym7707" target="_blank">github.com/Galym7707</a>
+          <a href="https://github.com/Galym7707" target="_blank" rel="noopener">github.com/Galym7707</a>
         </p>
       </div>
     </div>
@@ -79,19 +86,20 @@
       <!-- LEFT COLUMN -->
       <div class="avoid">
         <div class="card avoid">
-          <div class="hd">Profile</div>
+          <div class="hd">Summary</div>
           <div class="bd">
-            Ambitious student building AI and web products; strong results in research and chess. Seeking programs where I can ship real-world tools and grow fast.
+            Designs and ships clean, responsive UIs with thoughtful UX, semantic HTML, and performance in mind. Comfortable owning the full front-end from wireframe to production.
           </div>
         </div>
 
         <div class="card avoid">
-          <div class="hd">Stack</div>
+          <div class="hd">UI/UX & Front-End Stack</div>
           <div class="bd">
             <div class="chips">
-              <span class="chip">Python</span><span class="chip">C++</span><span class="chip">Kotlin</span>
-              <span class="chip">HTML/CSS/JS</span><span class="chip">PHP</span>
-              <span class="chip">Computer Vision</span><span class="chip">Full-Stack</span>
+              <span class="chip accent">HTML5</span><span class="chip accent">CSS3 / Flex / Grid</span><span class="chip accent">JavaScript</span>
+              <span class="chip">Responsive Design</span><span class="chip">Accessibility (WCAG-aware)</span><span class="chip">Design Systems</span>
+              <span class="chip">Figma / Prototyping</span><span class="chip">Performance Tuning</span>
+              <span class="chip">Python</span><span class="chip">PHP</span><span class="chip">C++</span><span class="chip">Kotlin</span>
             </div>
           </div>
         </div>
@@ -100,14 +108,14 @@
           <div class="hd">Education</div>
           <div class="bd items">
             <div class="item">
-              <h4>Nazarbayev Intellectual School of Science and Mathematics in Medeu district of Almaty (former name of the school is NIS PhM Almaty)</h4>
-              <div class="meta">Almaty • Orken Scholarship • 2020–Present • Graduation 2026</div>
+              <h4>Nazarbayev Intellectual School of Science and Mathematics (Almaty)</h4>
+              <div class="meta">Orken Scholarship • 2020–Present • Graduation 2026</div>
             </div>
           </div>
         </div>
 
         <div class="card avoid">
-          <div class="hd">Languages & Tests</div>
+          <div class="hd">Languages</div>
           <div class="bd">
             <div class="chips">
               <span class="chip">Kazakh C2</span><span class="chip">Russian C2</span><span class="chip">English C1</span>
@@ -119,30 +127,39 @@
       <!-- RIGHT COLUMN -->
       <div class="avoid">
         <div class="card avoid">
-          <div class="hd">Projects</div>
+          <div class="hd">Selected UI/UX Projects</div>
           <div class="bd items">
             <div class="item avoid">
-              <h4>MpoxDetection.ai — AI Web App</h4>
-              <div class="meta">Image-based screening (monkeypox/cowpox/chickenpox/measles). Role: model inference + full-stack. Hosted on Railway. https://mpox-detector.up.railway.app</div>
+              <h4>MpoxDetection.ai — Patient-Facing Web App</h4>
+              <div class="meta">
+                <a href="https://mpox-detector.up.railway.app" target="_blank" rel="noopener">mpox-detector.up.railway.app</a>
+              </div>
+              <ul class="bul">
+                <li>Designed mobile-first UI for image-based screening flow; clear states & error messaging.</li>
+                <li>Implemented accessible forms, semantic structure, and lightweight styles for fast loads.</li>
+              </ul>
             </div>
             <div class="item avoid">
-              <h4>Freelance Web Development</h4>
-              <div class="meta">Delivered full-stack sites with focus on UX/performance (from ₸15,000). Freelance website made by me and my team Lunight: https://lunight.netlify.app .</div>
+              <h4>Lunight — Freelance Web Development</h4>
+              <div class="meta">
+                <a href="https://lunight.netlify.app" target="_blank" rel="noopener">lunight.netlify.app</a> • client sites focused on UX & performance (from ₸15,000)
+              </div>
+              <ul class="bul">
+                <li>Planned IA, wireframes, and prototypes; shipped responsive UI components.</li>
+                <li>Optimized critical path (images/JS), improving usability on low-end devices.</li>
+              </ul>
             </div>
           </div>
         </div>
 
         <div class="card avoid">
-          <div class="hd">Selected Achievements</div>
+          <div class="hd">Honors & Awards</div>
           <div class="bd">
-            <div class="group-title">Highlights</div>
             <div class="items">
-              <div class="item"><h4>Central Asian Startup Cup — selected as Top 15 Most Innovative Startups (100+ teams from 4 countries)</h4><div class="meta">2024</div></div>
-              <div class="item"><h4>JASTAR Forum Sciencefair — 1st place in STEM category and ₸200,000 award (National level)</h4><div class="meta">Among 301 participants • 2025</div></div>
-              <div class="item"><h4>Fizmat AI Olympiad (FAIO) — Bronze (National level)</h4><div class="meta">Among 301 teams • 2024</div></div>
-              <div class="item"><h4>Caspian Startup — Finalist (International level)</h4><div class="meta">2024</div></div>
-              <div class="item"><h4>Samsung Solve for Tomorrow — Semi-finalist (National level)</h4><div class="meta">2025</div></div>
-              <div class="item"><h4>City Chess Competition (Almaty Schools) — 2nd and ₸100,000 award</h4><div class="meta">2024</div></div>
+              <div class="item"><h4>JASTAR Forum Sciencefair — 1st (STEM)</h4><div class="meta">National • ₸200,000 award • 2025</div></div>
+              <div class="item"><h4>Fizmat AI Olympiad (FAIO) — Bronze</h4><div class="meta">National • 2024</div></div>
+              <div class="item"><h4>Central Asian Startup Cup — Top-15 Innovative Startups</h4><div class="meta">100+ teams, 4 countries • 2024</div></div>
+              <div class="item"><h4>Caspian Startup — Finalist</h4><div class="meta">International • 2024</div></div>
             </div>
           </div>
         </div>
@@ -150,15 +167,21 @@
         <div class="card avoid">
           <div class="hd">Leadership & Service</div>
           <div class="bd items">
-            <div class="item"><h4>Teacher — Inclusive Academy (global online school for children with disabilities)</h4><div class="meta">Taught Python and Chess to 3 children (8–9 y.o.) • 2023</div></div>
-            <div class="item"><h4>Mentor — Nazarbayev Intellectual School of Science and Mathematics in Medeu district of Almaty</h4><div class="meta">Guided 5× 8th-graders; delivered 40-min session on adaptation & study planning; staff appreciation initiative • 2024–2025 academic year</div></div>
+            <div class="item">
+              <h4>Teacher — Inclusive Academy</h4>
+              <div class="meta">Global online school for children with disabilities • 2023</div>
+              <ul class="bul"><li>Taught Python & Chess (ages 8–9); individualized, accessible lesson flow.</li></ul>
+            </div>
+            <div class="item">
+              <h4>Mentor — NIS (Almaty)</h4>
+              <div class="meta">2024–2025</div>
+              <ul class="bul"><li>Guided 8th-graders; 40-min session on study plans and onboarding to school systems.</li></ul>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
 </body>
 </html>
-
-
-
