@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Galym Yedigeyev — One-Page Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ---------- Light, compact, one-page layout ---------- */
+  :root{
+    --bg:#ffffff; --text:#0b1220; --muted:#475569; --line:#e2e8f0;
+    --accent:#0f62fe; --chip:#f3f4f6; --chip-text:#0b1220; --radius:12px;
+    --base:11pt; /* compact for one page */
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font: var(--base)/1.4 Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  .wrap{max-width:1000px;margin:20px auto;padding:0 18px}
+  /* Header */
+  .header{display:grid;grid-template-columns:84px 1fr;gap:14px;align-items:center;margin-bottom:12px}
+  .avatar{width:84px;height:84px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fafafa}
+  .avatar img{width:100%;height:100%;object-fit:cover}
+  h1{font-size:22pt;letter-spacing:.2px;margin:0 0 2px 0}
+  .sub{font-weight:600;color:var(--muted);margin:0 0 6px 0}
+  .contact{font-size:10.5pt;color:var(--muted)}
+  .contact a{color:inherit;text-decoration:none;border-bottom:1px dotted #cbd5e1}
+  /* Grid */
+  .grid{display:grid;grid-template-columns:320px 1fr;gap:16px}
+  @media (max-width:960px){.grid{grid-template-columns:1fr}}
+  /* Cards (very light) */
+  .card{border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+  .hd{padding:10px 12px;border-bottom:1px solid var(--line);text-transform:uppercase;color:var(--muted);font-size:10pt;letter-spacing:.06em}
+  .bd{padding:10px 12px}
+  /* Chips */
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{background:var(--chip);color:var(--chip-text);border:1px solid #dfe3ea;border-radius:999px;padding:4px 8px;font-size:10pt}
+  /* Items */
+  .items{display:flex;flex-direction:column;gap:8px}
+  .item{padding:8px;border:1px solid var(--line);border-radius:10px;background:#fff}
+  .item h4{margin:0 0 2px 0;font-size:11.2pt}
+  .meta{color:var(--muted);font-size:10pt}
+  /* Tighten spacing to fit one page */
+  .bd p{margin:0}
+  .group-title{margin:8px 0 6px 0;color:var(--muted);text-transform:uppercase;font-size:9.6pt;letter-spacing:.08em}
+  .avoid{break-inside:avoid;page-break-inside:avoid}
+  /* Print: enforce one A4 page if possible */
+  @media print{
+    @page{size:A4;margin:10mm}
+    .wrap{margin:0;padding:0}
+    h1{font-size:20pt}
+    .sub{font-size:10.8pt}
+    .contact{font-size:10pt}
+    .grid{gap:12px}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header avoid">
+      <div class="avatar"><img src="MZrZUQ_LV-photo.png" alt="Galym Yedigeyev"></div>
+      <div>
+        <h1>Galym Yedigeyev</h1>
+        <p class="sub">Grade 12 • NIS PhM Almaty • AI & Full-Stack • First-Class Chess</p>
+        <p class="contact">
+          Almaty, Kazakhstan • +7 707 567 31 95 •
+          <a href="mailto:galymtashtek@gmail.com">galymtashtek@gmail.com</a> •
+          <a href="https://github.com/Galym7707" target="_blank">github.com/Galym7707</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- LEFT COLUMN -->
+      <div class="avoid">
+        <div class="card avoid">
+          <div class="hd">Profile</div>
+          <div class="bd">
+            Ambitious student building AI and web products; strong results in research and chess. Seeking programs where I can ship real-world tools and grow fast.
+          </div>
+        </div>
+
+        <div class="card avoid">
+          <div class="hd">Skills</div>
+          <div class="bd">
+            <div class="chips">
+              <span class="chip">Python</span><span class="chip">C++</span><span class="chip">Kotlin</span>
+              <span class="chip">HTML/CSS/JS</span><span class="chip">PHP</span>
+              <span class="chip">Computer Vision</span><span class="chip">Full-Stack</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card avoid">
+          <div class="hd">Education</div>
+          <div class="bd items">
+            <div class="item">
+              <h4>Nazarbayev Intellectual School of Physics & Mathematics</h4>
+              <div class="meta">Almaty • Scholarship • 2020–Present • Graduation 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card avoid">
+          <div class="hd">Languages & Tests</div>
+          <div class="bd">
+            <div class="chips">
+              <span class="chip">Kazakh C2</span><span class="chip">Russian C2</span><span class="chip">English C1 (IELTS 7.0)</span>
+              <span class="chip">SAT 1400</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="avoid">
+        <div class="card avoid">
+          <div class="hd">Projects</div>
+          <div class="bd items">
+            <div class="item avoid">
+              <h4>MpoxDetection.ai — AI Web App</h4>
+              <div class="meta">Image-based screening (monkeypox/cowpox/chickenpox/measles). Role: model inference + full-stack. Hosted on Railway. <a href="https://mpox-detector.up.railway.app" target="_blank">Open</a></div>
+            </div>
+            <div class="item avoid">
+              <h4>Freelance Web Development</h4>
+              <div class="meta">Delivered full-stack sites with focus on UX/performance (from ₸15,000).</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card avoid">
+          <div class="hd">Selected Achievements</div>
+          <div class="bd">
+            <div class="group-title">Highlights</div>
+            <div class="items">
+              <div class="item"><h4>JASTARForum Sciencefair — 1st (National)</h4><div class="meta">Among ~300 participants • 2025</div></div>
+              <div class="item"><h4>Fizmat AI Olympiad (FAIO) — Bronze (National)</h4><div class="meta">Among 301 teams • 2024</div></div>
+              <div class="item"><h4>Caspian Startup — Finalist (International)</h4><div class="meta">2024</div></div>
+              <div class="item"><h4>Samsung Solve for Tomorrow — Semi-finalist (National)</h4><div class="meta">2025</div></div>
+              <div class="item"><h4>City Chess (Almaty Schools) — 2nd</h4><div class="meta">Awarded ₸100,000 • 2024</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card avoid">
+          <div class="hd">Leadership & Service</div>
+          <div class="bd items">
+            <div class="item"><h4>Teacher — Inclusive Academy</h4><div class="meta">Taught Python to 3 children (8–9 y.o.) with disabilities; added logic & problem-solving. 2023</div></div>
+            <div class="item"><h4>Mentor — NIS PhM</h4><div class="meta">Guided 5× 8th-graders; delivered 40-min session on adaptation & study planning; staff appreciation initiative. 2024–2025</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
